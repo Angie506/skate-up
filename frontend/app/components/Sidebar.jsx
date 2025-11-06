@@ -29,7 +29,7 @@ function SidebarHeader() {
   return (
     <div className="sidebar-header">
       <h2 className="chatbot-title">Chatbot</h2>
-      <Link to="/chat/new" className="new-chat-btn">
+      <Link to="/chat/new" className="new-chat-btn btn-primary">
         + New
       </Link>
     </div>

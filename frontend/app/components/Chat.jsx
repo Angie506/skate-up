@@ -75,7 +75,7 @@ function ChatInput() {
           rows="1"
           required
         />
-        <button className="send-button" type="submit">
+        <button className="send-button btn-primary" type="submit">
           Send
         </button>
       </Form>

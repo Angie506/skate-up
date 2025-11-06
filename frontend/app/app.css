@@ -1,24 +1,30 @@
 /* CSS Variables */
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9f9f9;
-  --bg-hover: #f0f0f0;
-  --bg-message-user: #f1f3f5;
+  /* Palette taken from style tile */
+  --bg-primary: #121212; /* app background */
+  --bg-secondary: #2c2c2e; /* cards / panels */
+  --bg-hover: #1a1a1b; /* hover */
+  --bg-message-user: #0f1720; 
   --bg-message-bot: transparent;
-  --bg-button-primary: #4b5563;
-  --bg-button-primary-hover: #374151;
-  --bg-button-disabled: #d1d5db;
 
-  --text-primary: #0d0d0d;
-  --text-muted: #9ca3af;
+  --accent: #1c92b6; /* primary accent */
+  --accent-2: #0aa5d3; /* secondary accent (used in gradients) */
+  --accent-yellow: #FAD455;
+  --accent-pink: #FF5DA2;
+
+  --text-primary: #F9F9F9;
+  --text-muted: #9CA3AF;
   --text-button: #ffffff;
 
-  --border-light: #e5e5e5;
-  --border-medium: #d1d5db;
-  --border-focus: #6b7280;
+  --border-light: rgba(255,255,255,0.04);
+  --border-medium: rgba(255,255,255,0.06);
+  --border-focus: rgba(28,146,182,0.25);
 
-  --shadow-focus: rgba(107, 114, 128, 0.1);
+  --shadow-focus: rgba(10,165,211,0.12);
 }
+
+/* Load recommended fonts from style tile: Poppins (headings) + Inter (body) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
 
 /* Reset and base styles */
 * {
@@ -28,9 +34,7 @@
 }
 
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
@@ -259,8 +263,34 @@ body {
 .chat-thread-header {
   text-align: center;
   padding: 3rem 2rem;
-  text-align: center;
   color: var(--text-muted);
+}
+
+/* Typography tokens from style tile */
+h1, .home-hero h1, .chat-thread-header h1 { 
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 600; /* SemiBold */
+  font-size: 32px; /* H1 per style tile */
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+h2, .chat-thread-header h2 {
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 22px; /* H2 per style tile */
+  color: var(--text-primary);
+}
+p, .message-content, .welcome-card__body p {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+/* Button token */
+.send-button, .new-chat-btn, .routes-top-nav .nav-link, .welcome-card__cta {
+  font-family: Inter, sans-serif;
+  font-weight: 500; /* Inter Medium for buttons */
+  font-size: 14px;
 }
 
 .chat-messages {
@@ -376,3 +406,239 @@ body {
   border: 1px solid #fcc;
   font-size: 0.875rem;
 }
+
+/* Figma frame styles */
+.figma-frame {
+  width: 100%;
+  max-width: 840px;
+  margin: 1.25rem auto;
+  display: block;
+}
+
+.figma-frame__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.figma-frame__credit {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+/* Home / Welcome card styles inspired by Figma mobile frame */
+.home-hero {
+  padding: 1rem 1rem 0;
+}
+
+.greeting {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.fab-add {
+  position: absolute;
+  right: 1rem;
+  top: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #0aa5d3;
+  color: #0aa5d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.welcome-card {
+  background: linear-gradient(180deg, rgba(28,28,29,0.92), rgba(22,22,24,0.92));
+  color: var(--text-primary);
+  border-radius: 18px;
+  padding-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  border: 1px solid var(--border-medium);
+}
+
+.welcome-card__header {
+  background: rgba(0,0,0,0.25);
+  padding: 1rem 1rem 0.5rem;
+  text-align: center;
+}
+.welcome-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.welcome-card__image-wrap {
+  padding: 0.75rem 1rem 0;
+}
+.welcome-card__image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.welcome-card__body {
+  padding: 1rem;
+  color: #e6e6e6;
+  font-size: 0.95rem;
+}
+
+.welcome-card__dots {
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding-bottom: 0.5rem;
+}
+.welcome-card__dots span{ display:block; width:10px; height:10px; background:var(--accent); border-radius:50%; opacity:0.95 }
+
+.welcome-card__credit{
+  font-size:0.75rem; color:var(--text-muted); text-align:right; padding:0 1rem;
+}
+
+/* Mobile adjustments */
+@media(min-width: 768px){
+  .greeting{ font-size:2.5rem }
+  .welcome-card{ max-width:760px; margin: 0 auto }
+}
+
+/* Top nav pills used on Routes / Forecast pages */
+.routes-top-nav {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.routes-top-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.08s ease;
+}
+.routes-top-nav .nav-link:hover {
+  background: var(--bg-hover);
+}
+.routes-top-nav .nav-link--active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(10,165,211,0.16);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* Primary button styles using accent gradient */
+.btn-primary,
+.send-button,
+.new-chat-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--text-button);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 22px rgba(10,165,211,0.12);
+  transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.btn-primary:hover,
+.send-button:hover,
+.new-chat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(10,165,211,0.18);
+}
+.btn-primary:active,
+.send-button:active,
+.new-chat-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(10,165,211,0.10);
+}
+
+/* Ensure disabled appearance */
+.btn-primary:disabled,
+.send-button:disabled,
+.new-chat-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .routes-top-nav { gap: 0.35rem }
+  .routes-top-nav .nav-link { padding: 0.35rem 0.7rem; font-size: 0.95rem }
+}
+
+/* Mobile device frame to constrain pages to 390x844 design */
+.device-frame {
+  width: 100%;
+  max-width: 390px; /* design width */
+  aspect-ratio: 390 / 844;
+  height: auto;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  border-radius: 20px;
+  padding: 0.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.device-inner {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  border-radius: 14px;
+  overflow: auto;
+}
+
+/* Header matching the Figma component */
+.app-header {
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.header-inner{
+  display:flex;align-items:center;gap:12px;
+}
+.logo-wrap{display:flex;align-items:center;justify-content:center}
+.logo-boot{font-size:28px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.site-title{font-family:Poppins, Inter, sans-serif;font-weight:600;font-size:20px;color:var(--text-primary)}
+
+/* Ensure pages inside device frame scroll nicely on small screens */
+.device-inner .chat-messages, .device-inner .chat-input-container{max-width:360px;margin:0 auto}
+
+/* Footer styles matching Figma compact footer */
+.app-footer{
+  border-top: 1px solid var(--border-light);
+  padding: 0.75rem 0.75rem 1rem;
+  color: var(--text-muted);
+  background: transparent;
+}
+.app-footer .footer-inner{
+  max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:0.6rem;align-items:center;
+}
+.footer-brand{display:flex;align-items:center;gap:0.6rem}
+.footer-links{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center}
+.footer-link{color:var(--text-muted);text-decoration:none;padding:0.25rem 0.5rem;border-radius:6px;font-size:0.9rem}
+.footer-link:hover{color:var(--text-primary);background:var(--bg-hover)}
+.footer-link--active{color:var(--text-primary);font-weight:600}
+.footer-meta{display:flex;gap:0.5rem;align-items:center;flex-direction:column}
+.footer-cta .btn-primary{padding:0.45rem 0.85rem;font-size:0.9rem;border-radius:10px}
+.footer-copy{font-size:0.78rem;color:var(--text-muted)}

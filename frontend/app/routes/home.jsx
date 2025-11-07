@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { ChatMessages, ChatInput } from "../components/Chat.jsx";
+import Header from "../components/Header.jsx";
 
 /**
  * INITIAL MESSAGES DATA
@@ -97,30 +98,31 @@ export default function Home() {
 
   return (
     <main className="chat-container">
-      <header style={{ padding: "1rem", textAlign: "center" }}>
-        <h1>Home</h1>
-        <nav
-          style={{
-            display: "flex",
-            gap: "0.5rem",
-            justifyContent: "center",
-            marginTop: "0.5rem",
-          }}
-        >
-          <Link to="/routes" className="new-chat-btn">
-            Routes
-          </Link>
-          <Link to="/forecast" className="new-chat-btn">
-            Forecast
-          </Link>
-          <Link to="/you" className="new-chat-btn">
-            You
-          </Link>
-          <Link to="/preboarding" className="new-chat-btn">
-            Welcome
-          </Link>
-        </nav>
-      </header>
+      {/* Render the shared Header (matches the Figma 'Header' component) */}
+      <Header />
+
+      <nav
+        style={{
+          display: "flex",
+          gap: "0.5rem",
+          justifyContent: "center",
+          marginTop: "0.5rem",
+        }}
+        aria-label="Top navigation"
+      >
+        <Link to="/routes" className="new-chat-btn">
+          Routes
+        </Link>
+        <Link to="/forecast" className="new-chat-btn">
+          Forecast
+        </Link>
+        <Link to="/you" className="new-chat-btn">
+          You
+        </Link>
+        <Link to="/preboarding" className="new-chat-btn">
+          Welcome
+        </Link>
+      </nav>
 
       {/* Passing messages state as props - DATA FLOW! */}
       <ChatMessages messages={messages} />

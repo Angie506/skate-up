@@ -126,6 +126,7 @@ function ChatThreadsList({ threads = [] }) {
       <div className="search-container">
         <input
           type="text"
+          name="q"
           className="search-input"
           placeholder="Search conversations..."
           value={searchValue}

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { getFigmaManifest } from "../lib/figmaManifest";
 
 function Icon({ name }) {
   // simple placeholder SVG icons matching each tab name
@@ -106,13 +107,10 @@ export default function BottomNav() {
   const [icons, setIcons] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("/figma-components/manifest.json")
-      .then((r) => {
-        if (!r.ok) throw new Error("no-manifest");
-        return r.json();
-      })
+    // use cached loader so many instances/components don't refetch repeatedly
+    getFigmaManifest()
       .then((m) => {
-        const list = Array.isArray(m) ? m : m.files || [];
+        const list = m ? (Array.isArray(m) ? m : m.files || []) : [];
         setIcons(list);
       })
       .catch(() => setIcons([]));

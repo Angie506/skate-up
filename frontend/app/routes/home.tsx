@@ -26,36 +26,39 @@ export default function Home() {
   // Try to load a FAB icon exported from Figma (manifest populated by tools/figma-fetch.js)
   React.useEffect(() => {
     let mounted = true;
-    fetch('/figma-components/manifest.json')
-      .then((r) => r.json())
-      .then((manifest) => {
-        if (!mounted) return;
-        // normalize possible manifest shapes
-        let entries = [];
-        if (Array.isArray(manifest)) entries = manifest;
-        else if (manifest.files && Array.isArray(manifest.files)) entries = manifest.files;
-        else if (manifest.assets && Array.isArray(manifest.assets)) entries = manifest.assets;
-        else if (typeof manifest === 'object') entries = Object.values(manifest);
+    // use cached manifest loader
+    import("../lib/figmaManifest").then(({ getFigmaManifest }) => {
+      getFigmaManifest()
+        .then((manifest) => {
+          if (!mounted || !manifest) return;
+          // normalize possible manifest shapes
+          let entries = [];
+          if (Array.isArray(manifest)) entries = manifest;
+          else if (manifest.files && Array.isArray(manifest.files)) entries = manifest.files;
+          else if (manifest.assets && Array.isArray(manifest.assets)) entries = manifest.assets;
+          else if (typeof manifest === 'object') entries = Object.values(manifest);
 
-        // map to filename/url pairs
-        const filenames = entries.map(e => (typeof e === 'string' ? e : (e.name || e.filename || e.src || e.url || '')));
-        const urls = entries.map(e => (typeof e === 'string' ? e : (e.url || e.src || e.path || '')));
+          // map to filename/url pairs
+          const filenames = entries.map(e => (typeof e === 'string' ? e : (e.name || e.filename || e.src || e.url || '')));
+          const urls = entries.map(e => (typeof e === 'string' ? e : (e.url || e.src || e.path || '')));
 
-        // find likely fab file by name
-        const idx = filenames.findIndex(f => /fab|floating|action|plus|add|create|new/i.test(f));
-        let found = null;
-        if (idx !== -1) found = urls[idx] || filenames[idx];
-        if (!found) {
-          const idx2 = filenames.findIndex(f => /plus|new|add/i.test(f));
-          if (idx2 !== -1) found = urls[idx2] || filenames[idx2];
-        }
-        if (found) {
-          // ensure path is public-relative when needed
-          const url = found.startsWith('http') ? found : (found.startsWith('/figma-components') ? found : `/figma-components/${found}`);
-          setFabSvg(url);
-        }
-      })
-      .catch(() => {});
+          // find likely fab file by name
+          const idx = filenames.findIndex(f => /fab|floating|action|plus|add|create|new/i.test(f));
+          let found = null;
+          if (idx !== -1) found = urls[idx] || filenames[idx];
+          if (!found) {
+            const idx2 = filenames.findIndex(f => /plus|new|add/i.test(f));
+            if (idx2 !== -1) found = urls[idx2] || filenames[idx2];
+          }
+          if (found) {
+            // ensure path is public-relative when needed
+            const url = found.startsWith('http') ? found : (found.startsWith('/figma-components') ? found : `/figma-components/${found}`);
+            setFabSvg(url);
+          }
+        })
+        .catch(() => {});
+    });
+
     return () => { mounted = false };
   }, []);
 

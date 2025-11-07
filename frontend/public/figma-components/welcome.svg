@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+  <rect width="100%" height="100%" fill="#111" />
+  <g fill="#ddd" font-family="Inter, Arial, Helvetica, sans-serif" font-size="40">
+    <text x="50%" y="45%" text-anchor="middle" fill="#ffffff" font-size="48">Placeholder image</text>
+    <text x="50%" y="55%" text-anchor="middle" fill="#9CA3AF" font-size="20">Drop your welcome.png into</text>
+    <text x="50%" y="59%" text-anchor="middle" fill="#9CA3AF" font-size="20">/public/figma-components/welcome.png</text>
+  </g>
+</svg>

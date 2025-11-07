@@ -64,11 +64,24 @@ function ChatMessages({ messages = [] }) {
  * 4. NO STATE NEEDED: Form clears and data reloads automatically
  * 5. DECLARATIVE: Just render the form, React Router handles the rest
  */
-function ChatInput() {
+function ChatInput({ autoFocus = false }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    if (autoFocus && ref.current) {
+      // focus and move caret to end
+      ref.current.focus();
+      try {
+        const len = ref.current.value.length;
+        ref.current.setSelectionRange(len, len);
+      } catch (e) {}
+    }
+  }, [autoFocus]);
+
   return (
     <div className="chat-input-container">
       <Form method="post" className="chat-input-wrapper">
         <textarea
+          ref={ref}
           name="message"
           className="chat-input"
           placeholder="Type your message here..."

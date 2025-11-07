@@ -3,6 +3,8 @@ import React from "react";
 import { NavLink } from "react-router";
 import FigmaFrame from "../components/FigmaFrame.jsx";
 import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import BottomNav from "../components/BottomNav.jsx";
 
 export default function Routes() {
   const [components, setComponents] = React.useState(null);
@@ -26,17 +28,6 @@ export default function Routes() {
 
           <div className="chat-thread-header">
             <h2>Routes</h2>
-            <nav className="routes-top-nav">
-              <NavLink to="/" className={({ isActive }) => ["nav-link", isActive && "nav-link--active"].filter(Boolean).join(" ") }>
-                Home
-              </NavLink>
-              <NavLink to="/forecast" className={({ isActive }) => ["nav-link", isActive && "nav-link--active"].filter(Boolean).join(" ") }>
-                Forecast
-              </NavLink>
-              <NavLink to="/you" className={({ isActive }) => ["nav-link", isActive && "nav-link--active"].filter(Boolean).join(" ") }>
-                You
-              </NavLink>
-            </nav>
           </div>
 
           <section className="routes-hero" style={{ padding: "1rem" }}>
@@ -65,6 +56,8 @@ export default function Routes() {
           </div>
         )}
           </section>
+          <BottomNav />
+          <Footer />
         </div>
       </div>
     </main>

@@ -3,6 +3,8 @@ import React from "react";
 import { NavLink } from "react-router";
 import FigmaFrame from "../components/FigmaFrame.jsx";
 import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import BottomNav from "../components/BottomNav.jsx";
 
 export default function You() {
   return (
@@ -13,17 +15,6 @@ export default function You() {
 
           <div className="chat-thread-header">
             <h1>You</h1>
-            <nav className="routes-top-nav">
-              <NavLink to="/" className={({ isActive }) => ["nav-link", isActive && "nav-link--active"].filter(Boolean).join(" ") }>
-                Home
-              </NavLink>
-              <NavLink to="/routes" className={({ isActive }) => ["nav-link", isActive && "nav-link--active"].filter(Boolean).join(" ") }>
-                Routes
-              </NavLink>
-              <NavLink to="/forecast" className={({ isActive }) => ["nav-link", isActive && "nav-link--active"].filter(Boolean).join(" ") }>
-                Forecast
-              </NavLink>
-            </nav>
           </div>
 
           <section className="you-hero" style={{ paddingTop: 16 }}>
@@ -34,6 +25,8 @@ export default function You() {
               />
             </div>
           </section>
+          <BottomNav />
+          <Footer />
         </div>
       </div>
     </main>

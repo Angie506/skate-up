@@ -349,6 +349,16 @@ p, .message-content, .welcome-card__body p {
   bottom: 0;
 }
 
+/* Animate chat composer when it appears */
+.chat-input-container{
+  animation: chat-composer-pop 260ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+@keyframes chat-composer-pop{
+  0%{ opacity:0; transform:translateY(8px) }
+  100%{ opacity:1; transform:translateY(0) }
+}
+
 .chat-input-wrapper {
   display: flex;
   gap: 0.5rem;
@@ -436,6 +446,81 @@ p, .message-content, .welcome-card__body p {
   padding: 1rem 1rem 0;
 }
 
+
+.home-top{position:relative;padding:18px 16px 0}
+.home-greeting{font-size:36px;line-height:1;letter-spacing:-0.6px;margin:0;color:var(--text-primary);font-family:Poppins, Inter, sans-serif;font-weight:700}
+
+/* Floating action button (FAB) - uses a Figma-exported svg when available */
+.fab-add{
+  position:absolute;
+  right:1rem;
+  top:1.15rem;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  border:none;
+  color:var(--text-button);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  box-shadow:0 8px 24px rgba(10,165,211,0.12);
+  transition:transform 0.12s ease, box-shadow 0.14s ease;
+}
+.fab-add:hover{ transform: translateY(-3px); box-shadow:0 14px 36px rgba(10,165,211,0.14); }
+.fab-icon{ width:22px; height:22px; display:block }
+.fab-fallback{ font-size:1.4rem; line-height:1; color:var(--text-button); font-weight:700 }
+
+/* Tooltip with entrance animation */
+.fab-tooltip{
+  position:absolute;
+  /* sit left of the FAB; nudged to match FAB right edge */
+  right:72px;
+  top:50%;
+  background:#111;
+  border:2px solid #d6b84b;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:12px;
+  font-size:13px;
+  max-width:220px;
+  text-align:left;
+  box-shadow:0 12px 30px rgba(0,0,0,0.5);
+  opacity:0;
+  transform:translateY(-50%) translateY(-8px) scale(0.98);
+  transform-origin:right center;
+}
+.fab-tooltip:before{ /* inner small triangle to simulate border + background */
+  content:"";
+  position:absolute;
+  right:-8px;
+  top:50%;
+  transform:translateY(-50%);
+  border-width:6px;
+  border-style:solid;
+  border-color:transparent transparent transparent #111;
+  z-index:2;
+}
+.fab-tooltip:after{ /* outer border triangle */
+  content:"";
+  position:absolute;
+  right:-12px;
+  top:50%;
+  transform:translateY(-50%);
+  border-width:8px;
+  border-style:solid;
+  border-color:transparent transparent transparent #d6b84b;
+  z-index:1;
+}
+.fab-tooltip--visible{ opacity:1; animation:fab-tooltip-pop 360ms cubic-bezier(.2,.9,.2,1) both }
+
+@keyframes fab-tooltip-pop{
+  0%{ opacity:0; transform:translateY(-12px) scale(0.96) }
+  60%{ transform:translateY(4px) scale(1.03) }
+  100%{ opacity:1; transform:translateY(0) scale(1) }
+}
+
 .greeting {
   font-size: 2rem;
   font-weight: 700;
@@ -509,6 +594,48 @@ p, .message-content, .welcome-card__body p {
 .welcome-card__credit{
   font-size:0.75rem; color:var(--text-muted); text-align:right; padding:0 1rem;
 }
+
+/* Posts feed styles */
+.post-list{display:flex;flex-direction:column;gap:16px;align-items:center;padding:12px 16px 28px}
+/* Make post cards responsive: fluid width up to 366x260, preserve aspect ratio */
+.post-card{
+  width:100%;
+  max-width:366px;
+  aspect-ratio:366 / 260;
+  background:var(--bg-secondary);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.45);
+  border:1px solid var(--border-light);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Tweak spacing and typography for narrow screens inside the device preview */
+@media (max-width: 380px) {
+  .post-list{padding:10px 12px 20px}
+  .post-card{max-width:340px;padding:12px}
+  .post-author{font-size:15px}
+  .post-body{font-size:15px}
+}
+.post-card__header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.post-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.04)}
+.post-author{font-family:Poppins, Inter, sans-serif;color:var(--text-primary);font-weight:600;font-size:16px}
+.post-date{font-size:12px;color:var(--text-muted);margin-top:2px}
+.post-body{color:var(--text-primary);font-size:16px;line-height:1.35;padding-top:8px;padding-bottom:12px}
+.post-actions{display:flex;gap:18px;align-items:center;justify-content:flex-start;margin-top:auto;padding-bottom:6px;padding-left:6px}
+.icon-btn{background:transparent;border:none;padding:8px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--accent-2)}
+.icon-svg{width:20px;height:20px;display:block}
+.icon-btn:hover{background:rgba(255,255,255,0.02)}
+
+/* Outline vs filled states */
+.icon-btn .svg-fill{fill:currentColor;}
+.icon-btn .svg-outline{stroke:currentColor}
+.icon-btn--filled .svg-fill{opacity:1}
+.icon-btn--filled .svg-outline{opacity:0}
+.icon-btn--primary{background:rgba(255,255,255,0.02);border-radius:12px}
+.icon-btn--primary .svg-fill{opacity:1;color:var(--accent-pink)}
 
 /* Mobile adjustments */
 @media(min-width: 768px){
@@ -604,6 +731,7 @@ p, .message-content, .welcome-card__body p {
   background: var(--bg-primary);
   border-radius: 14px;
   overflow: auto;
+  position: relative; /* allow absolutely-positioned bottom nav to center inside the device frame */
 }
 
 /* Header matching the Figma component */
@@ -624,21 +752,52 @@ p, .message-content, .welcome-card__body p {
 /* Ensure pages inside device frame scroll nicely on small screens */
 .device-inner .chat-messages, .device-inner .chat-input-container{max-width:360px;margin:0 auto}
 
-/* Footer styles matching Figma compact footer */
-.app-footer{
-  border-top: 1px solid var(--border-light);
-  padding: 0.75rem 0.75rem 1rem;
-  color: var(--text-muted);
-  background: transparent;
+/* Bottom tab navigation (Figma mobile tab bar) */
+.bottom-nav{
+  /* sticky inside the device preview so it stays visible at the bottom while content scrolls */
+  position: sticky;
+  bottom: 12px; /* slightly above the frame bottom */
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  width: calc(100% - 48px);
+  max-width: 360px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
 }
-.app-footer .footer-inner{
-  max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:0.6rem;align-items:center;
+.bottom-nav__item{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-muted);text-decoration:none;font-size:12px;padding:6px 6px;flex:1;justify-content:center}
+.bottom-nav__item--active{color:var(--text-primary);font-weight:600}
+.bottom-nav__item svg{display:block}
+.bottom-nav__label{font-size:12px}
+
+.bottom-nav__icon{width:22px;height:22px;display:block;filter:none}
+
+
+/* Footer styles removed per user request (visual elements deleted) */
+
+/* Welcome card image sizing and clipping — ensures uploaded photos fill the card like the Figma frame */
+.welcome-card__image-wrap{
+  width:100%;
+  max-width:360px; /* card is constrained inside the device preview */
+  aspect-ratio:366 / 260; /* match Figma card ratio */
+  overflow:hidden;
+  border-radius:12px; /* small radius matching the card */
+  margin: 0.5rem auto;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.06));
+  border: 1px solid var(--border-light);
 }
-.footer-brand{display:flex;align-items:center;gap:0.6rem}
-.footer-links{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center}
-.footer-link{color:var(--text-muted);text-decoration:none;padding:0.25rem 0.5rem;border-radius:6px;font-size:0.9rem}
-.footer-link:hover{color:var(--text-primary);background:var(--bg-hover)}
-.footer-link--active{color:var(--text-primary);font-weight:600}
-.footer-meta{display:flex;gap:0.5rem;align-items:center;flex-direction:column}
-.footer-cta .btn-primary{padding:0.45rem 0.85rem;font-size:0.9rem;border-radius:10px}
-.footer-copy{font-size:0.78rem;color:var(--text-muted)}
+.welcome-card__image{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* crop to fill */
+  display:block;
+}
+
+/* Small credit line under the card */
+.welcome-card__credit{font-size:0.85rem;color:var(--text-muted);text-align:center;margin-top:8px}
+

@@ -13,4 +13,5 @@ Example copy command (run from the repo root):
 cp "/path/to/photo.jpg" "frontend/public/figma-components/welcome.png"
 ```
 
+![alt text](../welcome.png)
 If you'd rather use a different filename, update `FigmaFrame.jsx`'s `DEFAULT_SRC` accordingly.

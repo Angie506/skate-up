@@ -28,7 +28,7 @@ import { href, Link, NavLink, useFetcher } from "react-router";
 function SidebarHeader() {
   return (
     <div className="sidebar-header">
-      <h2 className="chatbot-title">Chatbot</h2>
+      <h2 className="chatbot-title">SkateUp</h2>
       <Link to="/chat/new" className="new-chat-btn btn-primary">
         + New
       </Link>
@@ -161,7 +161,9 @@ function SidebarFooter() {
           width={30}
           height={30}
         />
-        <span className="user-name">Batman</span>
+        <span className="user-name">
+          Bringing Aarhus's skating community together
+        </span>
       </a>
     </div>
   );

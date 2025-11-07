@@ -29,9 +29,12 @@ export default function PostCard({ post }) {
         if (!mounted || !manifest) return;
         let entries = [];
         if (Array.isArray(manifest)) entries = manifest;
-        else if (manifest.files && Array.isArray(manifest.files)) entries = manifest.files;
-        else if (manifest.assets && Array.isArray(manifest.assets)) entries = manifest.assets;
-        else if (typeof manifest === "object") entries = Object.values(manifest);
+        else if (manifest.files && Array.isArray(manifest.files))
+          entries = manifest.files;
+        else if (manifest.assets && Array.isArray(manifest.assets))
+          entries = manifest.assets;
+        else if (typeof manifest === "object")
+          entries = Object.values(manifest);
 
         const items = entries.map((e) => ({
           filename: typeof e === "string" ? e : e.filename || e.name || "",
@@ -49,7 +52,9 @@ export default function PostCard({ post }) {
               /avatar|profile|pic|photo|user/i.test(it.filename) &&
               it.filename.toLowerCase().includes(authorKey),
           ) ||
-          items.find((it) => /avatar|profile|pic|photo|user/i.test(it.filename));
+          items.find((it) =>
+            /avatar|profile|pic|photo|user/i.test(it.filename),
+          );
 
         if (avatarItem) {
           const found = avatarItem.url || avatarItem.filename;

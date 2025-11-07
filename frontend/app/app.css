@@ -1,3 +1,6 @@
+/* Load recommended fonts from style tile: Poppins (headings) + Inter (body) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
+
 /* CSS Variables */
 :root {
   /* Palette taken from style tile */
@@ -23,8 +26,6 @@
   --shadow-focus: rgba(10,165,211,0.12);
 }
 
-/* Load recommended fonts from style tile: Poppins (headings) + Inter (body) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
 
 /* Reset and base styles */
 * {
@@ -736,39 +737,74 @@ p, .message-content, .welcome-card__body p {
 
 /* Header matching the Figma component */
 .app-header {
-  padding: 16px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
+  /* Mobile header matching Figma frame: full width of device (390px) and 54px tall */
+  width: 100%;
+  max-width: 390px;
+  height: 54px; /* exact Figma height */
+  padding: 0; /* controlled internally */
+  display: block;
+  background: #000; /* solid black background per Figma */
+  box-sizing: border-box;
 }
 .header-inner{
-  display:flex;align-items:center;gap:12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 .logo-wrap{display:flex;align-items:center;justify-content:center}
 .logo-boot{font-size:28px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
 .site-title{font-family:Poppins, Inter, sans-serif;font-weight:600;font-size:20px;color:var(--text-primary)}
+
+/* Status areas inside the header */
+.status-left, .status-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-left{ left: 12px }
+.status-right{ right: 12px }
+.status-time{ color: #fff; font-size: 14px; font-family: Inter, sans-serif }
+.status-icon{ opacity: 0.95; margin-left: 6px }
+
+/* Make the centered title clearly visible on black */
+.site-title{ color: #fff; font-size: 16px }
+
+/* Ensure header scales nicely inside device frame */
+@media (max-width: 390px) {
+  .app-header { max-width: 100%; }
+}
 
 /* Ensure pages inside device frame scroll nicely on small screens */
 .device-inner .chat-messages, .device-inner .chat-input-container{max-width:360px;margin:0 auto}
 
 /* Bottom tab navigation (Figma mobile tab bar) */
 .bottom-nav{
-  /* sticky inside the device preview so it stays visible at the bottom while content scrolls */
-  position: sticky;
+  /* absolute inside the device preview so it always sits flush at the frame bottom */
+  position: absolute;
   bottom: 12px; /* slightly above the frame bottom */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  width: calc(100% - 48px);
-  max-width: 360px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  /* Fixed dimensions per request: 390x100 */
+  width: 390px;
+  max-width: 390px;
+  height: 100px;
+  padding: 12px 16px;
+  background: #000000;
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
   backdrop-filter: blur(6px);
+  z-index: 30; /* sit above map overlays */
+  pointer-events: auto;
 }
 .bottom-nav__item{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-muted);text-decoration:none;font-size:12px;padding:6px 6px;flex:1;justify-content:center}
 .bottom-nav__item--active{color:var(--text-primary);font-weight:600}
@@ -800,4 +836,146 @@ p, .message-content, .welcome-card__body p {
 
 /* Small credit line under the card */
 .welcome-card__credit{font-size:0.85rem;color:var(--text-muted);text-align:center;margin-top:8px}
+
+/* Routes map and overlays */
+.map-container{
+  /* Make the map container fill the area beneath the header and above
+     the bottom nav. Use absolute positioning so it always occupies the
+     available device-inner space and can't collapse to a shorter height. */
+  position: absolute;
+  top: 54px; /* header height */
+  left: 0;
+  right: 0;
+  bottom: 0; /* fills to device bottom (overlays like bottom-nav sit above) */
+  width: 100%;
+  overflow: hidden;
+}
+.map-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter: saturate(0.96) contrast(0.98);
+}
+
+/* Visible background to help debug whether the map container is present */
+.map-container {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+}
+
+/* Ensure react-leaflet's container fills the map area */
+.map-container .leaflet-container,
+.map-container .leaflet-map {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure map is behind overlays but visible */
+.map-container .leaflet-container {
+  z-index: 0 !important;
+  background: transparent;
+}
+
+/* Minimum height for the leaflet map wrapper moved from inline styles
+   so the component can remain clean and CSS-driven. Adjust as needed. */
+.leaflet-map-wrapper {
+  min-height: 320px;
+}
+
+/* Overlays should sit above the map */
+.create-route-btn {
+  z-index: 20;
+}
+.route-card-overlay { z-index: 18 }
+.route-count-bar { z-index: 18 }
+
+.create-route-btn{
+  position:absolute;
+  right:16px;
+  top:48%;
+  transform:translateY(-50%);
+  background:#000;
+  color:#fff;
+  border-radius:18px;
+  padding:10px 14px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.06);
+  font-weight:600;
+}
+.create-route-icon{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:8px;padding:6px}
+.create-route-label{font-size:14px}
+
+.route-card-overlay{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:84px; /* leave room for bottom nav */
+  display:flex;
+  justify-content:center;
+  pointer-events:none; /* card itself should allow clicks on inner elements */
+}
+.route-card{
+  /* Fixed size card matching requested dimensions */
+  width: 372px;
+  height: 112px;
+  background: linear-gradient(180deg, rgba(22,22,24,0.95), rgba(14,14,15,0.95));
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center; /* vertically center thumbnail and text */
+  box-shadow: 0 12px 34px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  pointer-events: auto;
+  overflow: hidden;
+}
+.route-thumb{
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.04);
+}
+.route-info{flex:1;color:var(--text-primary);display:flex;flex-direction:column;min-width:0}
+.route-title{font-family:Poppins,Inter,sans-serif;font-size:16px;margin:0 0 6px;line-height:1.15;font-weight:800;color:#ffffff;text-shadow:0 2px 10px rgba(0,0,0,0.8);overflow-wrap:break-word}
+.route-info::before{
+  /* subtle dark backing behind text to keep contrast over map */
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+.route-info > * { position: relative; z-index: 2 }
+.route-location{font-size:13px}
+.route-meta{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.route-difficulty{background:#1e8f55;color:#fff;padding:6px 8px;border-radius:10px;font-weight:600;font-size:13px}
+.route-stats{color:var(--text-muted);font-size:13px}
+.route-location{color:var(--text-muted);font-size:13px;margin-top:4px}
+.route-made{color:var(--accent-2);font-size:13px;margin-top:6px;text-decoration:none}
+
+.route-count-bar{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.route-handle{width:64px;height:8px;border-radius:8px;background:#fff;opacity:0.95;margin-bottom:6px}
+.route-count{background:#000;width:100%;max-width:360px;border-radius:18px;padding:12px 18px;color:#fff;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;border-top:3px solid rgba(218,181,73,0.9)}
+
+@media (max-width:420px){
+  .create-route-btn{right:12px;top:52%}
+  .route-card{padding:10px}
+  .route-thumb{width:84px;height:64px}
+  .route-count{font-size:18px}
+}
 

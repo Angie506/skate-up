@@ -1,9 +1,9 @@
 // @ts-nocheck
 import React from "react";
+import Header from "../components/Header.jsx";
 // NavLink removed from Home; footer contains the site links
 import { ChatMessages, ChatInput } from "../components/Chat.jsx";
 import FigmaFrame from "../components/FigmaFrame.jsx";
-import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import BottomNav from "../components/BottomNav.jsx";
 import PostCard from "../components/PostCard.jsx";
@@ -73,6 +73,7 @@ export default function Home() {
     <main className="chat-container">
       <div className="device-frame">
         <div className="device-inner">
+          <Header />
           <div className="home-top">
             <h1 className="home-greeting">Hi Sofia Alvarez!</h1>
             <button

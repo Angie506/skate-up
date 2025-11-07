@@ -9,6 +9,7 @@ import {
 } from "react-router";
 
 import "./app.css";
+import "leaflet/dist/leaflet.css";
 
 export const links = () => [];
 

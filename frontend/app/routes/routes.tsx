@@ -2,6 +2,7 @@
 import React from "react";
 import { NavLink } from "react-router";
 import FigmaFrame from "../components/FigmaFrame.jsx";
+import AarhusMap from "../components/AarhusMap.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import BottomNav from "../components/BottomNav.jsx";
@@ -26,35 +27,46 @@ export default function Routes() {
         <div className="device-inner">
           <Header />
 
-          <div className="chat-thread-header">
-            <h2>Routes</h2>
-          </div>
+          {/* Title removed per user request - keep header area clean for map preview */}
 
-          <section className="routes-hero" style={{ padding: "1rem" }}>
-        {components === null ? (
-          // No manifest or manifest missing: show the single FigmaFrame preview
-          <FigmaFrame
-            title="Explore Routes"
-            body={
-              "Browse and share favorite routes, spots, and sessions — pin your go-to lines and photos."
-            }
-          />
-        ) : components.length === 0 ? (
-          <p>No Figma components downloaded yet — run the fetch script to populate them.</p>
-        ) : (
-          <div className="figma-gallery" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px,1fr))", gap: "1rem" }}>
-            {components.map((c) => (
-              <figure key={c.filename} className="figma-card" style={{ background: "#fff", padding: "0.5rem", borderRadius: 12 }}>
-                <img
-                  src={`/figma-components/${c.filename}`}
-                  alt={c.name}
-                  style={{ width: "100%", height: "auto", display: "block", borderRadius: 8 }}
-                />
-                <figcaption style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>{c.name}</figcaption>
-              </figure>
-            ))}
-          </div>
-        )}
+          <section className="routes-hero" style={{ padding: 0 }}>
+            <div className="map-container">
+              {/* Map background: prefer a figma-exported map, fall back to welcome svg */}
+              <AarhusMap className="map-image" />
+
+              {/* Floating Create Route button */}
+              <button className="create-route-btn" aria-label="Create Route">
+                <span className="create-route-icon">✚</span>
+                <span className="create-route-label">Create Route</span>
+              </button>
+
+              {/* Bottom overlay card with route preview */}
+              <div className="route-card-overlay">
+                <article className="route-card">
+                  <img
+                    className="route-thumb"
+                    src="/figma-components/route-thumb.png"
+                    alt="Aarhus 1900 Inline"
+                    onError={(e) => { e.currentTarget.src = '/figma-components/welcome.svg'; }}
+                  />
+                  <div className="route-info">
+                    <h3 className="route-title">Aarhus 1900 Inline</h3>
+                    <div className="route-meta">
+                      <span className="route-difficulty">Easy</span>
+                      <span className="route-stats">60,3 km · 40 min</span>
+                    </div>
+                    <div className="route-location">Aarhus Municipality, Central Denmark Region</div>
+                    <a className="route-made">Made for you</a>
+                  </div>
+                </article>
+              </div>
+
+              {/* Bottom handle and count bar (above bottom nav) */}
+              <div className="route-count-bar">
+                <div className="route-handle" aria-hidden></div>
+                <div className="route-count">5 routes</div>
+              </div>
+            </div>
           </section>
           <BottomNav />
           <Footer />

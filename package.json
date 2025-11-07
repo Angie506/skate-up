@@ -1,0 +1,9 @@
+{
+  "name": "skate-up-root",
+  "private": true,
+  "scripts": {
+    "dev": "cd frontend && HOST=0.0.0.0 npm run dev",
+    "install-frontend": "cd frontend && npm install",
+    "start-frontend": "cd frontend && npm run start"
+  }
+}

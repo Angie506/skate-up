@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app:cached
+      - /app/node_modules
+    environment:
+      # Useful for file watching on macOS/Windows
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+    tty: true

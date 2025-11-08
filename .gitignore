@@ -1,0 +1,15 @@
+### Project ignores
+# Node modules
+node_modules/
+
+# Vite / build outputs
+frontend/build/
+
+# Local env files (do not commit secrets)
+frontend/.env
+
+# macOS
+.DS_Store
+
+# Editor configs
+.vscode/

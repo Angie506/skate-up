@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install frontend dependencies
+        run: npm run install-frontend
+
+      - name: Build frontend
+        # run the frontend build to verify there are no compile errors
+        run: cd frontend && npm run build
+
+      - name: Verify mock threads present (sanity)
+        run: |
+          node -e "const fs=require('fs'); const path='frontend/app/lib/mockThreads.js'; if(!fs.existsSync(path)){console.error('mockThreads missing'); process.exit(2);} console.log('mockThreads found');"

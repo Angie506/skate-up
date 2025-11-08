@@ -13,21 +13,72 @@ export default function You() {
         <div className="device-inner">
           <Header />
 
-          <div className="chat-thread-header">
-            <h1>You</h1>
+          <div className="you-header" style={{ paddingTop: 12 }}>
+            <div style={{ maxWidth: 360, margin: "0 auto", padding: "12px 16px" }}>
+              <h1>You</h1>
+            </div>
           </div>
 
-          <section className="you-hero" style={{ paddingTop: 16 }}>
-            <div style={{ maxWidth: 360, margin: "0 auto" }}>
-              <FigmaFrame
-                title="Your Profile"
-                body={"Manage your profile, preferences, and saved routes — keep your skating identity up to date."}
-              />
+          <section className="you-hero" style={{ paddingTop: 12 }}>
+            <div style={{ maxWidth: 360, margin: "0 auto", padding: "0 12px 80px" }}>
+              <article className="profile-card">
+                <div className="profile-row">
+                  <div className="profile-avatar-wrap">
+                    <img className="profile-avatar" src="/figma-components/avatar.jpg" alt="Sofia Alvarez" onError={(e)=>{e.currentTarget.src='/figma-components/welcome.svg'}} />
+                  </div>
+                  <div className="profile-info">
+                    <div className="profile-name">Sofia Alvarez</div>
+                    <div className="profile-streak">🔥 21 days streak</div>
+                  </div>
+                  <div className="profile-actions">
+                    <button className="icon-btn small" aria-label="notifications">🔔</button>
+                    <button className="icon-btn small" aria-label="settings">⚙️</button>
+                  </div>
+                </div>
+
+                <div className="badges-wrap">
+                  <div className="badges-card">
+                    <div className="badges-header">
+                      <span>Your badges</span>
+                      <a className="badges-details">Details ›</a>
+                    </div>
+                    <div className="badges-row">
+                      <div className="badge">
+                        <div className="badge-thumb" />
+                        <div className="badge-label">Gold<br/>x3</div>
+                      </div>
+                      <div className="badge">
+                        <div className="badge-thumb" />
+                        <div className="badge-label">Silver<br/>x7</div>
+                      </div>
+                      <div className="badge">
+                        <div className="badge-thumb" />
+                        <div className="badge-label">Bronze<br/>x2</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <h2 className="section-title">Community</h2>
+              <div className="community-list">
+                <div className="community-item">
+                  <div className="community-thumb" />
+                  <div className="community-title">Lessons</div>
+                  <div className="community-action">›</div>
+                </div>
+
+                <div className="community-item">
+                  <div className="community-thumb" />
+                  <div className="community-title">Events</div>
+                  <div className="community-action">›</div>
+                </div>
+              </div>
             </div>
           </section>
-          <BottomNav />
           <Footer />
         </div>
+        <BottomNav />
       </div>
     </main>
   );

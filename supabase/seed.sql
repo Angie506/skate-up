@@ -3,23 +3,23 @@
 
 -- Insert sample threads
 INSERT INTO threads (id, title, created_at) VALUES
-  ('11111111-1111-1111-1111-111111111111', 'How to learn programming?', '2025-10-01 10:00:00+00'),
+  ('11111111-1111-1111-1111-111111111111', 'Show me the best skating routes near Dokk1?', '2025-10-01 10:00:00+00'),
   ('22222222-2222-2222-2222-222222222222', 'What are the best pizza toppings?', '2025-10-01 11:30:00+00'),
-  ('33333333-3333-3333-3333-333333333333', 'Can you explain quantum physics?', '2025-10-02 09:15:00+00'),
+  ('33333333-3333-3333-3333-333333333333', 'Will it rain in Aarhus tonight?', '2025-10-02 09:15:00+00'),
   ('44444444-4444-4444-4444-444444444444', 'Help me create a morning routine', '2025-10-02 14:20:00+00'),
-  ('55555555-5555-5555-5555-555555555555', 'What should I do this weekend?', '2025-10-03 08:45:00+00'),
+  ('55555555-5555-5555-5555-555555555555', 'Where can I skate when it\'s windy?', '2025-10-03 08:45:00+00'),
   ('66666666-6666-6666-6666-666666666666', 'Why is the sky blue?', '2025-10-03 13:10:00+00'),
-  ('77777777-7777-7777-7777-777777777777', 'How do I learn a new language?', '2025-10-04 07:30:00+00'),
+  ('77777777-7777-7777-7777-777777777777', 'Find a route with smooth pavement?', '2025-10-04 07:30:00+00'),
   ('88888888-8888-8888-8888-888888888888', 'What''s the meaning of life?', '2025-10-04 16:00:00+00'),
-  ('99999999-9999-9999-9999-999999999999', 'Tell me a funny joke', '2025-10-05 10:25:00+00'),
+  ('99999999-9999-9999-9999-999999999999', 'Suggest a sunset skating route', '2025-10-05 10:25:00+00'),
   ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'What''s a healthy dinner idea?', '2025-10-05 12:40:00+00');
 
 -- Insert messages for thread: "How to learn programming?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
-  ('11111111-1111-1111-1111-111111111111', 'user', 'How to learn programming?', '2025-10-01 10:00:00+00'),
-  ('11111111-1111-1111-1111-111111111111', 'bot', 'Great question! Learning programming is an exciting journey. I recommend starting with the fundamentals: pick a beginner-friendly language like Python or JavaScript, practice coding every day (even just 30 minutes helps!), build small projects to apply what you learn, and don''t be afraid to make mistakes - they''re your best teachers!', '2025-10-01 10:00:15+00'),
-  ('11111111-1111-1111-1111-111111111111', 'user', 'Which language should I start with?', '2025-10-01 10:01:30+00'),
-  ('11111111-1111-1111-1111-111111111111', 'bot', 'Python is excellent for beginners because of its readable syntax and versatility. It''s used in web development, data science, automation, and more. JavaScript is also great if you want to build websites and see immediate visual results in the browser.', '2025-10-01 10:01:45+00');
+  ('11111111-1111-1111-1111-111111111111', 'user', 'Show me the best skating routes near Dokk1?', '2025-10-01 10:00:00+00'),
+  ('11111111-1111-1111-1111-111111111111', 'bot', 'Here are a few great skating options near Dokk1:\n\n1) Dokk1 Waterfront Promenade — a flat, smooth 3.2 km loop right by the harbor, ideal for beginners and steady cruising.\n2) Aarhus Ø Promenade to Den Permanente — ~5 km, scenic sea views and wide asphalt paths (watch for pedestrians at the boardwalk sections).\n3) Riis Skov Lakeside Path — ~4 km, tree-lined and sheltered with consistently good pavement.\n\nTell me which one you want more details for (distance, difficulty, or a GPX), and I\'ll plan it for you.', '2025-10-01 10:00:15+00'),
+  ('11111111-1111-1111-1111-111111111111', 'user', 'Which route is best for beginners?', '2025-10-01 10:01:30+00'),
+  ('11111111-1111-1111-1111-111111111111', 'bot', 'The Dokk1 Waterfront Promenade is the best for beginners: it\'s flat, wide, and has smooth asphalt with minimal elevation change. Start with one lap (about 3 km) and increase distance as you feel comfortable. Would you like turn-by-turn directions or a downloadable GPX?', '2025-10-01 10:01:45+00');
 
 -- Insert messages for thread: "What are the best pizza toppings?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
@@ -30,10 +30,10 @@ INSERT INTO messages (thread_id, type, content, created_at) VALUES
 
 -- Insert messages for thread: "Can you explain quantum physics?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
-  ('33333333-3333-3333-3333-333333333333', 'user', 'Can you explain quantum physics?', '2025-10-02 09:15:00+00'),
-  ('33333333-3333-3333-3333-333333333333', 'bot', 'Quantum physics studies matter and energy at the smallest scales - atoms and subatomic particles. At this level, particles behave very differently from our everyday experience. Key concepts include: superposition (particles can be in multiple states at once), entanglement (particles can be mysteriously connected across distances), and wave-particle duality (things can act as both waves and particles).', '2025-10-02 09:15:20+00'),
-  ('33333333-3333-3333-3333-333333333333', 'user', 'What''s Schrödinger''s cat?', '2025-10-02 09:17:00+00'),
-  ('33333333-3333-3333-3333-333333333333', 'bot', 'Schrödinger''s cat is a thought experiment illustrating quantum superposition. Imagine a cat in a sealed box with a device that might release poison. Until you open the box, quantum mechanics suggests the cat is simultaneously both alive and dead. It''s not meant to be taken literally - it highlights how strange quantum mechanics seems when applied to everyday objects!', '2025-10-02 09:17:25+00');
+  ('33333333-3333-3333-3333-333333333333', 'user', 'Will it rain in Aarhus tonight?', '2025-10-02 09:15:00+00'),
+  ('33333333-3333-3333-3333-333333333333', 'bot', 'I don\'t have live weather here in the seed data, but here\'s how to check and what to expect: consult DMI or a local forecast (Open-Meteo/Met.no) for up-to-date radar. Typically in this season there\'s a chance of light showers overnight — if you\'re planning to skate, bring a lightweight waterproof layer and avoid low-lying coastal paths if the wind picks up. Want me to fetch a live forecast for tonight (if the app is connected)?', '2025-10-02 09:15:20+00'),
+  ('33333333-3333-3333-3333-333333333333', 'user', 'If it might rain, when is the best time to skate tonight?', '2025-10-02 09:17:00+00'),
+  ('33333333-3333-3333-3333-333333333333', 'bot', 'If showers are likely, aim for the earlier evening hours before midnight — many precipitation models show the heaviest probability later at night. Another option is to pick a sheltered route (under bridges or inside parks) or a covered indoor skatepark. Would you like recommended sheltered routes near your area?', '2025-10-02 09:17:25+00');
 
 -- Insert messages for thread: "Help me create a morning routine"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
@@ -44,8 +44,8 @@ INSERT INTO messages (thread_id, type, content, created_at) VALUES
 
 -- Insert messages for thread: "What should I do this weekend?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
-  ('55555555-5555-5555-5555-555555555555', 'user', 'What should I do this weekend?', '2025-10-03 08:45:00+00'),
-  ('55555555-5555-5555-5555-555555555555', 'bot', 'That depends on what energizes you! Options include: exploring a new neighborhood or hiking trail, trying a new restaurant or cooking something adventurous, visiting a museum or local event, working on a hobby project, catching up with friends, or simply relaxing with a good book or movie. Mix productive activities with genuine rest!', '2025-10-03 08:45:15+00');
+  ('55555555-5555-5555-5555-555555555555', 'user', 'Where can I skate when it\'s windy?', '2025-10-03 08:45:00+00'),
+  ('55555555-5555-5555-5555-555555555555', 'bot', 'When it\'s windy, look for sheltered or leeward spots and indoor options:\n\n• Indoor skateparks (check local listings) — best if wind is strong.\n• Park underpasses and river paths (e.g., sheltered sections along the river) — blocked from crosswinds.\n• Tree-lined paths or streets with buildings on the windward side (they create a windbreak).\n• Coastal harbours with enclosed promenades (less exposed than open beaches).\n\nTell me your location and I\'ll suggest sheltered routes nearby.', '2025-10-03 08:45:15+00');
 
 -- Insert messages for thread: "Why is the sky blue?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
@@ -54,10 +54,10 @@ INSERT INTO messages (thread_id, type, content, created_at) VALUES
 
 -- Insert messages for thread: "How do I learn a new language?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
-  ('77777777-7777-7777-7777-777777777777', 'user', 'How do I learn a new language?', '2025-10-04 07:30:00+00'),
-  ('77777777-7777-7777-7777-777777777777', 'bot', 'Learning a language takes dedication but is very rewarding! Try these approaches: 1) Use language learning apps daily (Duolingo, Babbel), 2) Watch movies/shows with subtitles, 3) Practice speaking from day one (even to yourself!), 4) Find a language exchange partner, 5) Immerse yourself in the culture through music and books, 6) Be patient - fluency takes time, but every bit of practice counts!', '2025-10-04 07:30:22+00'),
-  ('77777777-7777-7777-7777-777777777777', 'user', 'How long does it take to become fluent?', '2025-10-04 07:32:00+00'),
-  ('77777777-7777-7777-7777-777777777777', 'bot', 'It varies by language and your dedication. Languages similar to yours (Spanish if you know English) might take 6-12 months of consistent study for conversational fluency. More different languages (Japanese, Arabic) could take 2-3 years. Key factors: daily practice (even 20 minutes helps), real conversations, and consistent exposure over time.', '2025-10-04 07:32:20+00');
+  ('77777777-7777-7777-7777-777777777777', 'user', 'Find a route with smooth pavement?', '2025-10-04 07:30:00+00'),
+  ('77777777-7777-7777-7777-777777777777', 'bot', 'Look for dedicated bike paths, promenades, and tarmac park loops — these usually have the smoothest surfaces. Nearby examples: Havnepromenaden (Aarhus Harbour), the Riis Skov lakeside path, and the University campus loop. When searching routes, filter for "asphalt" or "bike path" surface types and avoid cobblestone or gravel. Would you like me to find the closest smooth route to your location?', '2025-10-04 07:30:22+00'),
+  ('77777777-7777-7777-7777-777777777777', 'user', 'Can you find one near me with minimal bumps?', '2025-10-04 07:32:00+00'),
+  ('77777777-7777-7777-7777-777777777777', 'bot', 'Sure — I can search for routes with predominantly asphalt surfaces and low elevation change. If you share your location or allow location access, I\'ll return a ranked list (distance, surface rating, and estimated time). Want me to search now?', '2025-10-04 07:32:20+00');
 
 -- Insert messages for thread: "What's the meaning of life?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
@@ -68,10 +68,10 @@ INSERT INTO messages (thread_id, type, content, created_at) VALUES
 
 -- Insert messages for thread: "Tell me a funny joke"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
-  ('99999999-9999-9999-9999-999999999999', 'user', 'Tell me a funny joke', '2025-10-05 10:25:00+00'),
-  ('99999999-9999-9999-9999-999999999999', 'bot', 'Why don''t programmers like nature? It has too many bugs! 🐛😄', '2025-10-05 10:25:05+00'),
-  ('99999999-9999-9999-9999-999999999999', 'user', 'Haha! Got another one?', '2025-10-05 10:25:30+00'),
-  ('99999999-9999-9999-9999-999999999999', 'bot', 'Sure! Why did the developer go broke? Because he used up all his cache! 💰😂', '2025-10-05 10:25:35+00');
+  ('99999999-9999-9999-9999-999999999999', 'user', 'Suggest a sunset skating route', '2025-10-05 10:25:00+00'),
+  ('99999999-9999-9999-9999-999999999999', 'bot', 'Try this sunset-friendly route: start at Dokk1, skate east along the Harbour Promenade toward Aarhus Ø, follow the waterfront promenade to the pier, then continue south along the coastal path near Den Permanente. Total ~6 km – flat and scenic with excellent sunset views over the water. Aim to start about 30–45 minutes before sunset for the best light. Would you like a GPX or step-by-step directions?', '2025-10-05 10:25:05+00'),
+  ('99999999-9999-9999-9999-999999999999', 'user', 'Can you give me the GPX?', '2025-10-05 10:25:30+00'),
+  ('99999999-9999-9999-9999-999999999999', 'bot', 'Absolutely — I can export that route as a GPX file you can download or load into your phone. Do you want it optimized for a relaxed cruise or a faster pace?', '2025-10-05 10:25:35+00');
 
 -- Insert messages for thread: "What's a healthy dinner idea?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES

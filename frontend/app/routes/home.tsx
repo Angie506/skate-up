@@ -104,9 +104,9 @@ export default function Home() {
 
           <ChatMessages messages={messages} />
           {composerOpen && <ChatInput autoFocus={composerOpen} />}
-          <BottomNav />
           <Footer />
         </div>
+        <BottomNav />
       </div>
     </main>
   );

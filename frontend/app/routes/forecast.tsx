@@ -13,23 +13,68 @@ export default function Forecast() {
         <div className="device-inner">
           <Header />
 
-          <div className="chat-thread-header">
-            <h1>Forecast</h1>
+          <div className="forecast-header" style={{ paddingTop: 12 }}>
+            <div style={{ maxWidth: 360, margin: "0 auto", padding: "12px 16px" }}>
+              <h1>Forecast</h1>
+              <p className="forecast-sub">Plan your skating session</p>
+            </div>
           </div>
 
-          <section className="forecast-hero" style={{ paddingTop: 16 }}>
-            <div style={{ maxWidth: 360, margin: "0 auto" }}>
-              <FigmaFrame
-                title="Weather & Conditions"
-                body={
-                  "Check local skate-friendly conditions, wind, and surface updates so you can plan the perfect session."
-                }
-              />
+          <section className="forecast-hero">
+            <div className="forecast-cards" style={{ maxWidth: 360, margin: "0 auto" }}>
+              <div className="weather-card">
+                <div className="weather-card__left">
+                  <div className="weather-day">Today</div>
+                  <div className="weather-date">Oct 23</div>
+                  <div className="weather-temp">18°C</div>
+                  <div className="weather-wind">12km/h</div>
+                </div>
+                <div className="weather-card__icon">☀️</div>
+              </div>
+
+              <div className="weather-card">
+                <div className="weather-card__left">
+                  <div className="weather-day">Tomorrow</div>
+                  <div className="weather-date">Oct 24</div>
+                  <div className="weather-temp">16°C</div>
+                  <div className="weather-wind">12km/h</div>
+                </div>
+                <div className="weather-card__icon">☁️</div>
+              </div>
+
+              <div className="forecast-alert">Lovely day - no need for a jacket!</div>
             </div>
           </section>
-          <BottomNav />
+
+          <section className="looks-section" style={{ paddingTop: 6 }}>
+            <div style={{ maxWidth: 360, margin: "0 auto", padding: "0 12px 80px" }}>
+              <h2 className="looks-title">✨ Skating looks for today</h2>
+
+              <div className="looks-grid">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div className="look-item" key={i}>
+                    <div className="look-thumb" />
+                    <button className="view-btn">View</button>
+                  </div>
+                ))}
+
+                <div className="look-large">
+                  <div className="look-large-thumb" />
+                </div>
+
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div className="look-item" key={"b" + i}>
+                    <div className="look-thumb" />
+                    <button className="view-btn">View</button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <Footer />
         </div>
+        <BottomNav />
       </div>
     </main>
   );

@@ -675,6 +675,87 @@ p, .message-content, .welcome-card__body p {
   border-color: rgba(255,255,255,0.06);
 }
 
+/* Forecast page styles */
+.forecast-header { padding-bottom: 6px }
+.forecast-sub { color: var(--text-muted); margin-top: 6px; font-size: 14px }
+
+.forecast-hero { padding: 6px 0 10px }
+.forecast-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch }
+.weather-card { background: var(--bg-secondary); border-radius: 12px; padding: 12px; display:flex; align-items:center; justify-content:space-between; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border:1px solid var(--border-light) }
+.weather-card__left { display:flex; flex-direction:column; gap:6px }
+.weather-day { font-weight:700; color:var(--text-primary); font-family:Poppins, Inter, sans-serif }
+.weather-date { color:var(--text-muted); font-size:13px }
+.weather-temp { font-size:22px; font-weight:800; color:var(--text-primary); margin-top:6px }
+.weather-wind { color:var(--text-muted); font-size:13px }
+.weather-card__icon { font-size:34px }
+
+.forecast-alert {
+  margin-top: 12px;
+  width: 342px; /* exact width requested */
+  height: 48px; /* exact height requested */
+  margin-left: auto;
+  margin-right: auto; /* center inside device frame */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent-pink);
+  color: var(--text-primary);
+  border-radius: 12px;
+  font-weight: 600;
+  background: transparent; /* keep inside-device dark background visible */
+  padding: 0 16px; /* keep inner text from touching edges */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.looks-section { padding-top: 8px }
+.looks-title { color: var(--text-primary); font-size:18px; margin: 8px 0 }
+.looks-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; align-items:start }
+.look-item { position:relative; background:var(--bg-secondary); border-radius:10px; overflow:hidden; height:84px; display:flex; align-items:flex-end; justify-content:flex-start }
+.look-thumb { width:100%; height:100%; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)); }
+.view-btn { position:absolute; left:8px; bottom:8px; background: #ffffff; color:#111; border:none; padding:6px 10px; border-radius:8px; font-weight:600; font-size:13px; cursor:pointer }
+.look-large { grid-column: span 3; height:180px; border-radius:12px; overflow:hidden; background:var(--bg-secondary) }
+.look-large-thumb { width:100%; height:100%; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)); }
+
+@media (max-width: 420px) {
+  .forecast-cards { grid-template-columns: 1fr 1fr }
+  .looks-grid { grid-template-columns: repeat(3, 1fr) }
+  .look-large { grid-column: span 3 }
+}
+
+/* You / Profile page styles */
+.profile-card {
+  background: var(--bg-secondary);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid var(--border-light);
+  margin-bottom: 16px;
+}
+.profile-row { display:flex; align-items:center; gap:16px }
+.profile-avatar-wrap { flex: 0 0 auto }
+.profile-avatar { width:72px; height:72px; border-radius:50%; object-fit:cover; border:4px solid rgba(0,0,0,0.25); box-shadow:0 6px 18px rgba(0,0,0,0.35) }
+.profile-info { flex:1; min-width:0 }
+.profile-name { font-family:Poppins, Inter, sans-serif; font-size:20px; color:var(--text-primary); font-weight:700 }
+.profile-streak { color:var(--accent-yellow); margin-top:6px }
+.profile-actions { display:flex; gap:8px }
+.icon-btn.small { background:transparent; border:none; color:var(--text-muted); font-size:18px }
+
+.badges-wrap { margin-top:16px }
+.badges-card { border-radius:14px; padding:12px; border:2px solid #d6b84b; background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04)); }
+.badges-header { display:flex; justify-content:space-between; align-items:center; color:var(--text-primary); font-weight:700; margin-bottom:12px }
+.badges-details { color:var(--accent-2); text-decoration:none }
+.badges-row { display:flex; gap:18px; align-items:center; justify-content:center }
+.badge { text-align:center; color:var(--text-primary) }
+.badge-thumb { width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,#f6c84a,#d6b84b); box-shadow:0 8px 20px rgba(0,0,0,0.5); margin:0 auto }
+.badge-label { margin-top:8px; color:var(--text-muted); font-size:13px }
+
+.section-title { font-size:18px; color:var(--text-primary); margin: 10px 0 }
+.community-list { display:flex; flex-direction:column; gap:14px }
+.community-item { display:flex; align-items:center; gap:12px; background:var(--bg-secondary); padding:16px; border-radius:14px; border:1px solid var(--border-light) }
+.community-thumb { width:56px; height:56px; border-radius:50%; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)); border:2px solid rgba(255,255,255,0.04) }
+.community-title { flex:1; color:var(--text-primary); font-weight:600 }
+.community-action { color:var(--accent-2); font-weight:700 }
+
 /* Primary button styles using accent gradient */
 .btn-primary,
 .send-button,
@@ -724,6 +805,7 @@ p, .message-content, .welcome-card__body p {
   padding: 0.5rem;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   overflow: hidden;
+  position: relative; /* allow absolutely-positioned elements (BottomNav) to anchor to the frame */
 }
 
 .device-inner {
@@ -785,7 +867,7 @@ p, .message-content, .welcome-card__body p {
 
 /* Bottom tab navigation (Figma mobile tab bar) */
 .bottom-nav{
-  /* absolute inside the device preview so it always sits flush at the frame bottom */
+  /* absolutely positioned inside the device frame so it remains fixed/visible */
   position: absolute;
   bottom: 12px; /* slightly above the frame bottom */
   left: 50%;
@@ -803,9 +885,40 @@ p, .message-content, .welcome-card__body p {
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
   backdrop-filter: blur(6px);
-  z-index: 30; /* sit above map overlays */
+  z-index: 60; /* sit above overlays */
   pointer-events: auto;
 }
+
+/* Make the forecast header (title + sub) stick below the app header while scrolling */
+.forecast-header {
+  position: sticky;
+  top: 54px; /* sit directly under the black app header */
+  z-index: 35;
+  /* match the device-inner background so it doesn't show content through */
+  background: rgba(18,18,18,0.95);
+  backdrop-filter: blur(2px);
+}
+
+/* Centered footer bar that stays fixed inside the device frame.
+   We position it above the bottom nav so it remains visible and doesn't overlap. */
+.app-footer {
+  position: absolute; /* positioned relative to .device-inner which is relative */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 124px; /* sit above bottom nav (100px height + 12px gap) */
+  width: 342px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+  color: var(--text-primary);
+  z-index: 40;
+  pointer-events: auto;
+}
+.app-footer__content{ font-weight:600 }
 .bottom-nav__item{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text-muted);text-decoration:none;font-size:12px;padding:6px 6px;flex:1;justify-content:center}
 .bottom-nav__item--active{color:var(--text-primary);font-weight:600}
 .bottom-nav__item svg{display:block}

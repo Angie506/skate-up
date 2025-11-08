@@ -68,9 +68,9 @@ export default function Routes() {
               </div>
             </div>
           </section>
-          <BottomNav />
           <Footer />
         </div>
+        <BottomNav />
       </div>
     </main>
   );

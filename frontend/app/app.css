@@ -868,6 +868,9 @@ p, .message-content, .welcome-card__body p {
 .status-time{ color: #fff; font-size: 14px; font-family: Inter, sans-serif }
 .status-icon{ opacity: 0.95; margin-left: 6px }
 
+/* Header right status icons are small SVGs placed via Header component */
+/* Note: header action buttons (notifications / settings) were removed per request */
+
 /* Make the centered title clearly visible on black */
 .site-title{ color: #fff; font-size: 16px }
 

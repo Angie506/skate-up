@@ -680,14 +680,26 @@ p, .message-content, .welcome-card__body p {
 .forecast-sub { color: var(--text-muted); margin-top: 6px; font-size: 14px }
 
 .forecast-hero { padding: 6px 0 10px }
-.forecast-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch }
-.weather-card { background: var(--bg-secondary); border-radius: 12px; padding: 12px; display:flex; align-items:center; justify-content:space-between; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border:1px solid var(--border-light) }
+.forecast-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch }
+.weather-card {
+  background: var(--bg-secondary);
+  border-radius: 28px; /* larger rounded corners like the screenshot */
+  padding: 18px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.03);
+  min-height: 140px;
+}
 .weather-card__left { display:flex; flex-direction:column; gap:6px }
-.weather-day { font-weight:700; color:var(--text-primary); font-family:Poppins, Inter, sans-serif }
+.weather-day { font-weight:700; color:var(--text-primary); font-family:Poppins, Inter, sans-serif; font-size:24px }
 .weather-date { color:var(--text-muted); font-size:13px }
-.weather-temp { font-size:22px; font-weight:800; color:var(--text-primary); margin-top:6px }
-.weather-wind { color:var(--text-muted); font-size:13px }
-.weather-card__icon { font-size:34px }
+.weather-temp { font-size:48px; font-weight:800; color:var(--text-primary); margin-top:6px }
+.weather-wind { color:var(--text-muted); font-size:13px; display:flex; align-items:center; gap:8px }
+.wind-icon{ opacity:0.9; font-size:14px }
+.weather-card__icon { display:flex; align-items:center; justify-content:center; }
+.weather-icon-circle{ width:64px; height:64px; border-radius:18px; display:flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.03); font-size:34px }
 
 .forecast-alert {
   margin-top: 12px;
@@ -700,11 +712,13 @@ p, .message-content, .welcome-card__body p {
   justify-content: center;
   border: 2px solid var(--accent-pink);
   color: var(--text-primary);
-  border-radius: 12px;
-  font-weight: 600;
+  border-radius: 24px; /* more pill-like */
+  font-weight: 700;
   background: transparent; /* keep inside-device dark background visible */
-  padding: 0 16px; /* keep inner text from touching edges */
+  padding: 0 20px; /* keep inner text from touching edges */
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  font-size: 18px;
+  text-align: center;
 }
 
 .looks-section { padding-top: 8px }

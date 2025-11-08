@@ -27,9 +27,11 @@ export default function Forecast() {
                   <div className="weather-day">Today</div>
                   <div className="weather-date">Oct 23</div>
                   <div className="weather-temp">18°C</div>
-                  <div className="weather-wind">12km/h</div>
+                  <div className="weather-wind"><span className="wind-icon">💨</span>12km/h</div>
                 </div>
-                <div className="weather-card__icon">☀️</div>
+                <div className="weather-card__icon">
+                  <div className="weather-icon-circle">☀️</div>
+                </div>
               </div>
 
               <div className="weather-card">
@@ -37,9 +39,11 @@ export default function Forecast() {
                   <div className="weather-day">Tomorrow</div>
                   <div className="weather-date">Oct 24</div>
                   <div className="weather-temp">16°C</div>
-                  <div className="weather-wind">12km/h</div>
+                  <div className="weather-wind"><span className="wind-icon">💨</span>12km/h</div>
                 </div>
-                <div className="weather-card__icon">☁️</div>
+                <div className="weather-card__icon">
+                  <div className="weather-icon-circle">☁️</div>
+                </div>
               </div>
 
               <div className="forecast-alert">Lovely day - no need for a jacket!</div>

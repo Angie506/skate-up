@@ -55,24 +55,34 @@ export default function Forecast() {
             <div style={{ maxWidth: 360, margin: "0 auto", padding: "0 12px 80px" }}>
               <h2 className="looks-title">✨ Skating looks for today</h2>
 
-              <div className="looks-grid">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div className="look-item" key={i}>
-                    <div className="look-thumb" />
-                    <button className="view-btn">View</button>
-                  </div>
-                ))}
-
+              <div className="looks-container">
+                <div className="looks-grid-small">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div className="look-item" key={i}>
+                      <div className="look-thumb" />
+                      <button className="view-btn">View</button>
+                    </div>
+                  ))}
+                </div>
                 <div className="look-large">
                   <div className="look-large-thumb" />
                 </div>
+              </div>
 
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div className="look-item" key={"b" + i}>
-                    <div className="look-thumb" />
-                    <button className="view-btn">View</button>
-                  </div>
-                ))}
+              <h2 className="looks-title">✨ Skating looks for tomorrow</h2>
+
+              <div className="looks-container">
+                <div className="looks-grid-small">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div className="look-item" key={i}>
+                      <div className="look-thumb" />
+                      <button className="view-btn">View</button>
+                    </div>
+                  ))}
+                </div>
+                <div className="look-large">
+                  <div className="look-large-thumb" />
+                </div>
               </div>
             </div>
           </section>

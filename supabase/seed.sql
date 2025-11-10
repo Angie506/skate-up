@@ -14,7 +14,7 @@ INSERT INTO threads (id, title, created_at) VALUES
   ('99999999-9999-9999-9999-999999999999', 'Suggest a sunset skating route', '2025-10-05 10:25:00+00'),
   ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'What''s a healthy dinner idea?', '2025-10-05 12:40:00+00');
 
--- Insert messages for thread: "How to learn programming?"
+-- Insert messages for thread: "How to lepsql -h <your-supabase-db-host> -U postgres -d postgres -f supabase/seed.sqlarn programming?"
 INSERT INTO messages (thread_id, type, content, created_at) VALUES
   ('11111111-1111-1111-1111-111111111111', 'user', 'Show me the best skating routes near Dokk1?', '2025-10-01 10:00:00+00'),
   ('11111111-1111-1111-1111-111111111111', 'bot', 'Here are a few great skating options near Dokk1:\n\n1) Dokk1 Waterfront Promenade — a flat, smooth 3.2 km loop right by the harbor, ideal for beginners and steady cruising.\n2) Aarhus Ø Promenade to Den Permanente — ~5 km, scenic sea views and wide asphalt paths (watch for pedestrians at the boardwalk sections).\n3) Riis Skov Lakeside Path — ~4 km, tree-lined and sheltered with consistently good pavement.\n\nTell me which one you want more details for (distance, difficulty, or a GPX), and I\'ll plan it for you.', '2025-10-01 10:00:15+00'),

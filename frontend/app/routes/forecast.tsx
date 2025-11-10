@@ -14,7 +14,7 @@ export default function Forecast() {
           <Header />
 
           <div className="forecast-header" style={{ paddingTop: 12 }}>
-            <div style={{ maxWidth: 360, margin: "0 auto", padding: "12px 16px" }}>
+            <div style={{ maxWidth: 360, margin: "0 auto" }}>
               <h1>Forecast</h1>
               <p className="forecast-sub">Plan your skating session</p>
             </div>
@@ -22,7 +22,7 @@ export default function Forecast() {
 
           <section className="forecast-hero">
             <div className="forecast-cards" style={{ maxWidth: 360, margin: "0 auto" }}>
-              <div className="weather-card">
+              <div className="weather-card" style={{ position: 'relative' }}>
                 <div className="weather-card__left">
                   <div className="weather-day">Today</div>
                   <div className="weather-date">Oct 23</div>
@@ -34,7 +34,7 @@ export default function Forecast() {
                 </div>
               </div>
 
-              <div className="weather-card">
+              <div className="weather-card" style={{ position: 'relative' }}>
                 <div className="weather-card__left">
                   <div className="weather-day">Tomorrow</div>
                   <div className="weather-date">Oct 24</div>
@@ -45,7 +45,8 @@ export default function Forecast() {
                   <div className="weather-icon-circle">☁️</div>
                 </div>
               </div>
-
+            </div>
+            <div style={{ maxWidth: 360, margin: "0 auto", padding: "0 12px" }}>
               <div className="forecast-alert">Lovely day - no need for a jacket!</div>
             </div>
           </section>

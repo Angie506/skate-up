@@ -3,6 +3,7 @@
 This document explains how to run the frontend locally, configure environment variables, and seed the included Supabase SQL.
 
 ## Prerequisites
+
 - Node.js (v18+ recommended) and npm
 - Optional: Docker Desktop if you prefer to run containers
 
@@ -43,5 +44,6 @@ A seed SQL file is included at `supabase/seed.sql`. To populate your Supabase da
 After seeding, reload the app in your browser to see the seeded threads.
 
 ## Notes & best practices
+
 - `frontend/.env` is intentionally ignored in this repository to avoid committing keys.
 - Use the Supabase web UI for manual seeding. If you'd like, I can add an automated seed script that posts data to the REST API (this requires local environment variables and should be run securely).

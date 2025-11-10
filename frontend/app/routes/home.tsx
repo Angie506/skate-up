@@ -91,7 +91,7 @@ export default function Home() {
 
           <main className="home-hero" style={{ textAlign: "center", padding: "0 16px" }}>
             <div style={{ maxWidth: 360, margin: "1rem auto" }}>
-              <FigmaFrame credit="Preview image — replace with licensed asset" />
+              <FigmaFrame />
             </div>
           </main>
 

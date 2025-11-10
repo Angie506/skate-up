@@ -19,11 +19,3 @@ Please include a summary of the changes and the related issue. Reference any rel
 ## How to test
 
 Describe the steps required to test these changes locally (commands, env variables, seed data).
-
-## Screenshots (optional)
-
-Include before/after screenshots for UI changes.
-
----
-
-Thanks for contributing! Please @mention reviewers if you need specific attention.

@@ -6,21 +6,21 @@ This repository serves as a reference implementation for a classroom project whe
 
 ### 1. Component Architecture
 
--   Break down wireframes into React components
--   Learn to "Think in React" with component composition
--   Build nested component structure for chatbot interface
+- Break down wireframes into React components
+- Learn to "Think in React" with component composition
+- Build nested component structure for chatbot interface
 
 ### 2. React Foundation
 
--   Set up React Router app in framework mode with Vite
--   Work within single App component initially
--   Create chatbot UI using nested components
+- Set up React Router app in framework mode with Vite
+- Work within single App component initially
+- Create chatbot UI using nested components
 
 ### 3. State Management & Interactivity
 
--   Implement basic interactivity with React state
--   Learn data flow through props and state
--   Build interactive chat interface
+- Implement basic interactivity with React state
+- Learn data flow through props and state
+- Build interactive chat interface
 
 # A "chatbot" built with React and Postgres
 
@@ -100,6 +100,7 @@ This repository serves as a reference implementation for a classroom project whe
 This quickstart explains how to run the frontend locally, configure environment variables, and seed the included Supabase SQL.
 
 ### Prerequisites
+
 - Node.js (v18+ recommended) and npm
 - Optional: Docker Desktop if you prefer to run containers
 
